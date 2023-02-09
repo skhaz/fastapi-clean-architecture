@@ -13,7 +13,7 @@ class ContextManagerRepository(ABC):
     def __enter__(self):
         return self
 
-    def __exit__(self, *args, **kwargs):
+    def __exit__(self, *args, **kwargs) -> None:
         self.commit()
 
 
@@ -34,7 +34,7 @@ class BaseWriteOnlyRepository(ContextManagerRepository):
 
     @abstractmethod
     def remove(self, other: BaseEntity) -> bool:
-        ...  # pragma: no cover
+        ...
 
 
 class BaseRepository(BaseReadOnlyRepository, BaseWriteOnlyRepository, ABC):

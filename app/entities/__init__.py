@@ -1,6 +1,7 @@
 from abc import ABCMeta
 from abc import abstractmethod
-from dataclasses import dataclass
+
+from pydantic.dataclasses import dataclass
 
 
 @dataclass

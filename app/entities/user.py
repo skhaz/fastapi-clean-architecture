@@ -1,11 +1,13 @@
-from dataclasses import dataclass
+from typing import Optional
 from typing import TypedDict
+
+from pydantic.dataclasses import dataclass
 
 from app.entities import BaseEntity
 
 
 class User(TypedDict):
-    id: str
+    id: Optional[str]
     name: str
     email: str
     avatar: str
@@ -13,7 +15,7 @@ class User(TypedDict):
 
 @dataclass
 class UserEntity(BaseEntity):
-    id: str
+    id: Optional[str]
     name: str
     email: str
     avatar: str
@@ -27,6 +29,7 @@ class UserEntity(BaseEntity):
             avatar=other.get("avatar"),
         )
 
+    @classmethod
     def dict(self) -> User:
         return {
             "id": self.id,

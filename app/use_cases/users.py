@@ -1,13 +1,13 @@
 from pydantic import BaseModel
 
+from app.entities import BaseEntity
 from app.entities.user import UserEntity
 from app.repositories import BaseRepository
 from app.use_cases import BaseUseCase
-from app.entities import BaseEntity
 
 
 def transform(origin: BaseModel) -> BaseEntity:
-    return UserEntity.from_dict(origin.dict()).dict()
+    return UserEntity.from_dict(origin.dict())
 
 
 class UserAddUseCase(BaseUseCase):

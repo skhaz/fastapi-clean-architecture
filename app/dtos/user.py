@@ -1,9 +1,10 @@
-from dataclasses import dataclass
+from typing import Optional
 
 from pydantic import BaseModel
 from pydantic import EmailStr
 from pydantic import Field
 from pydantic import HttpUrl
+from pydantic.dataclasses import dataclass
 
 
 class UserRequest(BaseModel):
@@ -14,7 +15,11 @@ class UserRequest(BaseModel):
 
 @dataclass
 class UserResponse(BaseModel):
-    id: str
+    id: Optional[str]
     name: str
     email: str
     avatar: str
+
+    class Config:
+        orm_mode = True
+        allow_population_by_field_name = True
