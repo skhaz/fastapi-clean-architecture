@@ -18,11 +18,11 @@ help:
 run: ## Run the project using docker-compose
 	$(COMPOSE) up --build
 
-tests: vet ## Run tests
+test: vet ## Run tests
 	poetry run pytest --cov=app tests/
 
 vet: ## Run linters, type-checking, auto-formaters, and other tools
 	poetry run black app/ tests/
-	poetry run flake8 app/ #tests/
+	poetry run flake8 app/ tests/
 	poetry run isort app/ tests/
-	poetry run mypy app/ #tests/
+	poetry run mypy app/ tests/
