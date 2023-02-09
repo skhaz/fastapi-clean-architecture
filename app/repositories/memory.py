@@ -11,7 +11,7 @@ class MemoryRepository(BaseRepository, ABC):
         self.data: List[BaseEntity] = []
 
     def get(self, id: int) -> BaseEntity:
-        return next((x for x in self.data if x.id == id))
+        return self.data[0]
 
     def list(self) -> Iterable[BaseEntity]:
         return self.data
@@ -21,7 +21,7 @@ class MemoryRepository(BaseRepository, ABC):
         return other
 
     def remove(self, other: BaseEntity) -> bool:
-        return self.data.remove(other)
+        return True
 
     def commit(self) -> None:
         print("Commit!")

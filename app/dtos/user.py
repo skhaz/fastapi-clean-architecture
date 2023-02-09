@@ -4,7 +4,6 @@ from pydantic import BaseModel
 from pydantic import EmailStr
 from pydantic import Field
 from pydantic import HttpUrl
-from pydantic.dataclasses import dataclass
 
 
 class UserRequest(BaseModel):
@@ -13,7 +12,6 @@ class UserRequest(BaseModel):
     avatar: HttpUrl
 
 
-@dataclass
 class UserResponse(BaseModel):
     id: Optional[str]
     name: str
