@@ -3,5 +3,6 @@ services:
     build: .
     environment:
       - PORT=3000
+      - GOOGLE_APPLICATION_CREDENTIALS=credentials.json
     ports:
       - 3000:3000

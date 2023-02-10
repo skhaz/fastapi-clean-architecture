@@ -1,13 +1,15 @@
 from fastapi import APIRouter
+from google.cloud.firestore import Client as FirestoreClient
 
 from app.dtos.user import UserRequest
 from app.dtos.user import UserResponse
-from app.repositories.memory import MemoryRepository
+from app.repositories.firestore import FirestoreRepository
 from app.use_cases.users import UserAddUseCase
 from app.use_cases.users import UserListUseCase
 
 router = APIRouter()
-repo = MemoryRepository()
+firestore = FirestoreClient()
+repo = FirestoreRepository(firestore.collection("users"))
 
 
 @router.get("/users/", tags=["users"])

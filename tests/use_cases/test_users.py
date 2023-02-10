@@ -3,7 +3,7 @@ from app.repositories.memory import MemoryRepository
 from app.use_cases.users import UserAddUseCase
 
 
-def test_fail():
+def test_user_add_use_case():
     repo = MemoryRepository()
     case = UserAddUseCase(repo)
     user = UserRequest(
