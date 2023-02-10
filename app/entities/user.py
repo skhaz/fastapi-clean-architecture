@@ -1,7 +1,7 @@
+# from pydantic.dataclasses import dataclass
+from dataclasses import dataclass
 from typing import Optional
 from typing import TypedDict
-
-from pydantic.dataclasses import dataclass
 
 from app.entities import BaseEntity
 
@@ -29,7 +29,6 @@ class UserEntity(BaseEntity):
             avatar=other["avatar"],
         )
 
-    @classmethod
     def dict(self) -> User:
         return {
             "id": self.id,
