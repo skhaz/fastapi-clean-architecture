@@ -1,6 +1,7 @@
 from abc import ABC
 from abc import abstractmethod
 from typing import Iterable
+from typing import Optional
 
 from app.entities import BaseEntity
 
@@ -19,7 +20,7 @@ class ContextManagerRepository(ABC):
 
 class BaseReadOnlyRepository(ABC):
     @abstractmethod
-    def get(self, id: int) -> BaseEntity:
+    def get(self, id: str) -> Optional[BaseEntity]:
         ...
 
     @abstractmethod
@@ -33,7 +34,7 @@ class BaseWriteOnlyRepository(ContextManagerRepository):
         ...
 
     @abstractmethod
-    def remove(self, id: int) -> bool:
+    def remove(self, id: str) -> bool:
         ...
 
 

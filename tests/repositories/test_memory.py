@@ -13,33 +13,27 @@ class Dummy(TypedDict):
 
 @dataclass
 class DummyEntity(BaseEntity):
-    id: Optional[int]
-
     @classmethod
     def from_dict(cls, other: dict):
-        return cls(
-            id=other.get("id"),
-        )
+        return cls(id=other["id"])
 
-    @classmethod
-    def dict(self) -> Dummy:
-        return {
-            "id": self.id,
-        }
+    def dict(self):
+        return {"id": self.id}
 
 
 def test_memory_repository_add_and_list():
     repo = MemoryRepository()
-    entity = DummyEntity(id=1)
-    repo.add(entity)
+    entity = DummyEntity(id="1")
+    other = repo.add(entity)
     entities = repo.list()
 
+    assert other.id == "1"
     assert entities == [entity]
 
 
 def test_memory_repository_remove():
     repo = MemoryRepository()
-    entity = DummyEntity(id=1)
+    entity = DummyEntity(id="1")
     repo.add(entity)
     result = repo.remove(entity.id)
 
@@ -48,7 +42,7 @@ def test_memory_repository_remove():
 
 def test_memory_repository_get():
     repo = MemoryRepository()
-    entity = DummyEntity(id=1)
+    entity = DummyEntity(id="1")
     repo.add(entity)
     other = repo.get(entity.id)
 
