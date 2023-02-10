@@ -1,6 +1,6 @@
 from abc import ABC
+from typing import Dict
 from typing import Iterable
-from typing import List
 
 from app.entities import BaseEntity
 from app.repositories import BaseRepository
@@ -8,20 +8,23 @@ from app.repositories import BaseRepository
 
 class MemoryRepository(BaseRepository, ABC):
     def __init__(self) -> None:
-        self.data: List[BaseEntity] = []
+        self.data: Dict[int, BaseEntity] = {}
+        self.counter: int = 0
 
     def get(self, id: int) -> BaseEntity:
-        return self.data[0]
+        return self.data[id]
 
     def list(self) -> Iterable[BaseEntity]:
-        return self.data
+        return list(self.data.values())
 
     def add(self, other: BaseEntity) -> BaseEntity:
-        self.data.append(other)
+        self.counter += 1
+        self.data[self.counter] = other
         return other
 
-    def remove(self, other: BaseEntity) -> bool:
+    def remove(self, id: int) -> bool:
+        del self.data[id]
         return True
 
     def commit(self) -> None:
-        print("Commit!")
+        ...

@@ -1,6 +1,7 @@
-from dataclasses import dataclass
 from typing import Optional
 from typing import TypedDict
+
+from pydantic.dataclasses import dataclass
 
 from app.entities import BaseEntity
 

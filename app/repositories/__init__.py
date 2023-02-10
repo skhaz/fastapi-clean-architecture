@@ -33,7 +33,7 @@ class BaseWriteOnlyRepository(ContextManagerRepository):
         ...
 
     @abstractmethod
-    def remove(self, other: BaseEntity) -> bool:
+    def remove(self, id: int) -> bool:
         ...
 
 

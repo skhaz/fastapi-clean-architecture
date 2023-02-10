@@ -1,4 +1,4 @@
-.PHONY: help run tests vet
+.PHONY: help run test vet
 
 .SILENT:
 
@@ -19,7 +19,7 @@ run: ## Run the project using docker-compose
 	$(COMPOSE) up --build
 
 test: vet ## Run tests
-	poetry run pytest --cov=app tests/
+	poetry run pytest --verbose --cov=app tests/
 
 vet: ## Run linters, type-checking, auto-formaters, and other tools
 	poetry run black app/ tests/
