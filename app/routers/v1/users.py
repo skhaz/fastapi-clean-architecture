@@ -14,12 +14,12 @@ firestore = FirestoreClient()
 repo = FirestoreRepository(firestore.collection("users"))
 
 
-@router.get("/users/", tags=["users"])
+@router.get("/users/")
 async def get_users() -> List[UserResponse]:
     return [UserResponse.from_orm(e) for e in UserListUseCase(repo).execute()]
 
 
-@router.post("/users/", tags=["users"])
+@router.post("/users/")
 async def create_user(user: UserRequest) -> UserResponse:
     entity = UserAddUseCase(repo).execute(user)
 
