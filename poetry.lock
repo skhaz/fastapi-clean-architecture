@@ -1062,7 +1062,7 @@ pyasn1 = ">=0.1.3"
 name = "ruff"
 version = "0.0.245"
 description = "An extremely fast Python linter, written in Rust."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
@@ -1351,4 +1351,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "03a26b841837dd77ce8c457e6709d48666f52edae94e74e00d9bae106510ee2a"
+content-hash = "d088a8fc3335699c1a1d1451c9b4b1e7b4ec6e0162d47ab1abe0824fb161c80f"
