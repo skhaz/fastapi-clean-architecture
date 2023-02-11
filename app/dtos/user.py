@@ -13,10 +13,10 @@ class UserRequest(BaseModel):
 
 
 class UserResponse(BaseModel):
-    id: Optional[str]
-    name: str
-    email: str
-    avatar: str
+    id: str
+    name: str = Field(min_length=3, max_length=64)
+    email: EmailStr
+    avatar: HttpUrl
 
     class Config:
         orm_mode = True
