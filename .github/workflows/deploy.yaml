@@ -26,8 +26,8 @@ jobs:
         run: |
           gcloud run deploy ${{ secrets.SERVICE_NAME }} \
             --source $(pwd) \
-            --region us-central1 \
+            --region ${{ secrets.REGION }} \
             --allow-unauthenticated \
             --platform managed
 
-          gcloud run services update-traffic ${{ secrets.SERVICE_NAME }} --region us-central1 --to-latest
+          gcloud run services update-traffic ${{ secrets.SERVICE_NAME }} --region ${{ secrets.REGION }} --to-latest
