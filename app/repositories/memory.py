@@ -8,8 +8,6 @@ from app.repositories import BaseRepository
 
 class MemoryRepository(BaseRepository, ABC):
     def __init__(self) -> None:
-        # self.data: Dict[int, BaseEntity] = {}
-        # self.counter: int = 0
         self.data: list[BaseEntity] = []
 
     def get(self, id: str) -> Optional[BaseEntity]:
