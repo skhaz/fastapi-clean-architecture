@@ -16,7 +16,7 @@ class FirestoreRepository(BaseRepository, ABC):
         return self.collection.document(id).get()
 
     def list(self) -> Iterable[BaseEntity]:
-        return self.collection.get()
+        return [BaseEntity.from_dict(d.to_dict()) for d in self.collection.get()]
 
     def add(self, other: BaseEntity) -> BaseEntity:
         _, document_ref = self.collection.add(other.dict())
