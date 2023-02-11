@@ -25,10 +25,5 @@ jobs:
       - name: Deploy to Cloud Run
         run: |
           gcloud config set run/region ${{ secrets.REGION }}
-
-          gcloud run deploy ${{ secrets.SERVICE_NAME }} \
-            --source $(pwd) \
-            --allow-unauthenticated \
-            --platform managed
-
+          gcloud run deploy ${{ secrets.SERVICE_NAME }} --source $(pwd) --allow-unauthenticated --platform managed
           gcloud run services update-traffic ${{ secrets.SERVICE_NAME }} --to-latest
