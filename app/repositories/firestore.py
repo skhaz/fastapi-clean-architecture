@@ -5,6 +5,7 @@ from typing import Optional
 from google.cloud.firestore import CollectionReference
 
 from app.entities import BaseEntity
+from app.entities.user import UserEntity
 from app.repositories import BaseRepository
 
 
@@ -16,7 +17,10 @@ class FirestoreRepository(BaseRepository, ABC):
         return self.collection.document(id).get()
 
     def list(self) -> Iterable[BaseEntity]:
-        return [BaseEntity.from_dict(d.to_dict()) for d in self.collection.get()]
+        return [
+            UserEntity.from_dict(document.to_dict() | {"id": document.id})
+            for document in self.collection.get()
+        ]
 
     def add(self, other: BaseEntity) -> BaseEntity:
         _, document_ref = self.collection.add(other.dict())

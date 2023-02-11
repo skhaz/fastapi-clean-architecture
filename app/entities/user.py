@@ -15,6 +15,7 @@ class User(TypedDict):
 
 @dataclass
 class UserEntity(BaseEntity):
+    id: Optional[str]
     name: str
     email: str
     avatar: str
