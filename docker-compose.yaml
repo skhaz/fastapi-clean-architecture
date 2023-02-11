@@ -6,8 +6,9 @@ services:
         options: --reload
     environment:
       - PORT=3000
-      - GOOGLE_APPLICATION_CREDENTIALS=/app/credentials.json
+      - GOOGLE_APPLICATION_CREDENTIALS=/etc/credentials.json
     ports:
       - 3000:3000
     volumes:
-      - ./:/app
+      - ./credentials.json:/etc/credentials.json
+      - ./app:/opt/app

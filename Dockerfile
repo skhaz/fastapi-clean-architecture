@@ -2,6 +2,7 @@ FROM python:3.10-slim AS base
 ENV PATH /opt/venv/bin:$PATH
 ENV PYTHONUNBUFFERED 1
 ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONFAULTHANDLER 1
 
 FROM base AS builder
 WORKDIR /opt
@@ -16,8 +17,10 @@ WORKDIR /opt
 ARG PORT=3000
 ENV PORT $PORT
 EXPOSE $PORT
+ARG options
+ENV OPTIONS $options
 COPY --from=builder /opt/venv venv
 COPY app app
 RUN useradd -r user
 USER user
-CMD exec uvicorn --host 0.0.0.0 --port $PORT app.main:app
+CMD exec uvicorn $OPTIONS --host 0.0.0.0 --port $PORT app.main:app
