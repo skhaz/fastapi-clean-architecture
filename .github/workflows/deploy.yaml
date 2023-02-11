@@ -30,4 +30,4 @@ jobs:
             --allow-unauthenticated \
             --platform managed
 
-          gcloud run services update-traffic ${{ secrets.SERVICE_NAME }} --to-latest
+          gcloud run services update-traffic ${{ secrets.SERVICE_NAME }} --region us-central1 --to-latest
