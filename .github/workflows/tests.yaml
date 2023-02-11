@@ -6,12 +6,15 @@ on:
       - main
 
 jobs:
-  test:
+  tests:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      
+
+      - name: Install poetry
+        run: pipx install poetry
+
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
@@ -20,6 +23,5 @@ jobs:
       
       - name: Run tests
         run: |
-          pip install poetry
-          poetry install --no-root
+          # poetry install --no-root
           poetry run pytest --no-header tests/
