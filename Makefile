@@ -23,6 +23,6 @@ test: vet ## Run tests
 
 vet: ## Run linters, type-checking, auto-formaters, and other tools
 	poetry run black app/ tests/
-	poetry run flake8 app/ tests/
+	poetry run ruff app/ tests/
 	poetry run isort app/ tests/
 	poetry run mypy app/ tests/

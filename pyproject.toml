@@ -4,7 +4,6 @@ version = "0.1.0"
 description = ""
 authors = ["Rodrigo Delduca <rodrigodelduca@gmail.com>"]
 readme = "README.md"
-packages = [{include = "cloudrun_fastapi_firestore_cleancode"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
@@ -13,13 +12,13 @@ uvicorn = {extras = ["standard"], version = "^0.20.0"}
 pydantic = "^1.10.4"
 email-validator = "^1.3.1"
 google-cloud-firestore = "^2.9.1"
+ruff = "^0.0.245"
 
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.1.0"
 isort = "^5.12.0"
 pytest = "^7.2.1"
-flake8 = "^6.0.0"
 mypy = "^1.0.0"
 pytest-cov = "^4.0.0"
 
