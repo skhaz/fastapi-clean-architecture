@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "cloudrun-fastapi-firestore-cleancode"
+name = "fastapi-clean-architecture"
 version = "0.1.0"
 description = ""
 authors = ["Rodrigo Delduca <rodrigodelduca@gmail.com>"]
