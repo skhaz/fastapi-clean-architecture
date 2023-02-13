@@ -15,5 +15,5 @@ class BaseEntity(metaclass=ABCMeta):
         ...
 
     @abstractmethod
-    def dict(self):
+    def to_dict(self):
         ...

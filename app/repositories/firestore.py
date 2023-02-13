@@ -23,7 +23,7 @@ class FirestoreRepository(BaseRepository, ABC):
         ]
 
     def add(self, other: BaseEntity) -> BaseEntity:
-        _, reference = self.collection.add(other.dict())
+        _, reference = self.collection.add(other.to_dict())
         other.id = reference.id
         return other
 

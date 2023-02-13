@@ -29,7 +29,7 @@ class UserEntity(BaseEntity):
             avatar=other["avatar"],
         )
 
-    def dict(self) -> User:
+    def to_dict(self) -> User:
         return {
             "id": self.id,
             "name": self.name,
