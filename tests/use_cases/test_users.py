@@ -12,7 +12,7 @@ def test_user_add_use_case():
         avatar="https://s3.amazon.com/avatar.jpg",
     )
 
-    data = case.execute(user).dict()
+    data = case.execute(user).to_dict()
 
     assert data["name"] == user.name
     assert data["email"] == user.email

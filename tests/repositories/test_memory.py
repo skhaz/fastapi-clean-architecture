@@ -17,7 +17,7 @@ class DummyEntity(BaseEntity):
     def from_dict(cls, other: dict):
         return cls(id=other["id"])
 
-    def dict(self):
+    def to_dict(self):
         return {"id": self.id}
 
 
